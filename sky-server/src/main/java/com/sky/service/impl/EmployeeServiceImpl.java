@@ -70,6 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 新增员工
+     *
      * @param employeeDTO
      */
     @Override
@@ -99,6 +100,20 @@ public class EmployeeServiceImpl implements EmployeeService {
         pageResult.setTotal(page.getTotal());
         pageResult.setRecords(employeeList);
         return pageResult;
+    }
+
+    /**
+     * 启用禁用员工账号
+     *
+     * @param status
+     * @param id
+     */
+    @Override
+    public void startToStop(Integer status, long id) {
+        Employee employee = Employee.builder()
+                .id(id)
+                .status(status).build();
+        employeeMapper.update(employee);
     }
 
 

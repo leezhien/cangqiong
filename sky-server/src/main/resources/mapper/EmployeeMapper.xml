@@ -4,6 +4,7 @@
 <mapper namespace="com.sky.mapper.EmployeeMapper">
 
 
+
     <select id="pageQuery" resultType="com.sky.entity.Employee">
         select * from employee
         <where>
@@ -13,4 +14,48 @@
         </where>
         order by create_time desc
     </select>
+
+    <update id="update" parameterType="Employee">
+        update employee
+        <set>
+            <!-- 姓名 -->
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <!-- 用户名 -->
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <!-- 密码 -->
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <!-- 手机号 -->
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <!-- 性别 -->
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <!-- 身份证号 -->
+            <if test="idNumber != null and idNumber != ''">
+                id_number = #{idNumber},
+            </if>
+            <!-- 状态（假设是 0/1 之类的枚举） -->
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <!-- 更新时间（一般自动填充，也可手动赋值） -->
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <!-- 更新人（记录谁更新的，若有当前用户信息可传） -->
+            <if test="updateUser != null">
+                update_user = #{updateUser},
+            </if>
+        </set>
+        <!-- 必须加 where 条件，用 id 定位要更新的记录，否则会更新全表！ -->
+        where id = #{id}
+    </update>
 </mapper>
