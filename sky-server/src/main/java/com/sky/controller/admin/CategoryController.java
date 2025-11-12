@@ -9,9 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -47,6 +45,13 @@ public class CategoryController {
     public Result<List<Category>> getCategoryByType(int type) {
         List<Category> category = categoryService.getCategoryByType(type);
         return  Result.success(category);
+    }
+
+    @ApiOperation("新增分类")
+    @PostMapping()
+    public Result addCategory(@RequestBody Category category) {
+        categoryService.addCategory(category);
+        return Result.success();
     }
 
 }

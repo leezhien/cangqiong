@@ -2,6 +2,7 @@ package com.sky.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.sky.context.BaseContext;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.mapper.CategoryMapper;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -33,6 +35,20 @@ public class CategoryServiceImpl implements CategoryService {
         pageResult.setTotal(page.getTotal());
         pageResult.setRecords(categoryList);
         return pageResult;
+    }
+
+    /**
+     * 根据name、 sort、type、id添加分类
+     * @param category
+     */
+    @Override
+    public void addCategory(Category category) {
+        category.setCreateTime(LocalDateTime.now());
+        category.setUpdateTime(LocalDateTime.now());
+        category.setCreateUser(BaseContext.getCurrentId());
+        category.setUpdateUser(BaseContext.getCurrentId());
+        categoryMapper.addCategory(category);
+
     }
 
     @Override

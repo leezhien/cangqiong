@@ -17,4 +17,6 @@ public interface CategoryService {
     PageResult getAllCategory(CategoryPageQueryDTO categoryPageQueryDTO);
 
     List<Category> getCategoryByType(int type);
+
+    void addCategory(Category category);
 }
