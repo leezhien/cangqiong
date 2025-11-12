@@ -21,4 +21,6 @@ public interface CategoryService {
     void addCategory(Category category);
 
     void deleteCategoryById(int id);
+
+    void updateCategoryStatus(int status, int id);
 }

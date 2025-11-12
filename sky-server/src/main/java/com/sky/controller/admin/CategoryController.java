@@ -61,4 +61,11 @@ public class CategoryController {
         return Result.success();
     }
 
+    @ApiOperation("禁用启用分类")
+    @PostMapping("/status/{status}")
+    public Result updateCategoryStatus(@PathVariable int status, int id) {
+        categoryService.updateCategoryStatus(status,id);
+        return Result.success();
+    }
+
 }
