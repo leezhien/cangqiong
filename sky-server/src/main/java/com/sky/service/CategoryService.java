@@ -1,5 +1,6 @@
 package com.sky.service;
 
+import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.result.PageResult;
@@ -23,4 +24,6 @@ public interface CategoryService {
     void deleteCategoryById(int id);
 
     void updateCategoryStatus(int status, int id);
+
+    void updateCategoryById(CategoryDTO categoryDTO);
 }

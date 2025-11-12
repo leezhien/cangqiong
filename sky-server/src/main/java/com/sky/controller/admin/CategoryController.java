@@ -1,5 +1,6 @@
 package com.sky.controller.admin;
 
+import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.result.PageResult;
@@ -68,4 +69,10 @@ public class CategoryController {
         return Result.success();
     }
 
+    @ApiOperation("修改分类")
+    @PutMapping()
+    public Result updateCategoryById(@RequestBody CategoryDTO categoryDTO) {
+        categoryService.updateCategoryById(categoryDTO);
+        return Result.success();
+    }
 }

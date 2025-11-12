@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.github.pagehelper.Page;
+import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import org.apache.ibatis.annotations.*;
@@ -33,4 +34,7 @@ public interface CategoryMapper {
 
     @Update("update category set status = #{status} where id = #{id}")
     void updateCategoryStatus(@Param("status") int status, @Param("id") int id);
+
+    @Update("update category set name = #{name}, sort= #{sort}, update_time = #{updateTime}, update_user = #{updateUser} where id = #{id}")
+    void updateCategoryById(Category category);
 }
