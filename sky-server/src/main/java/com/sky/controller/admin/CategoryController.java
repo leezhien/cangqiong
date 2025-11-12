@@ -54,4 +54,11 @@ public class CategoryController {
         return Result.success();
     }
 
+    @ApiOperation("根据id删除分类")
+    @DeleteMapping()
+    public Result deleteCategoryById(int id) {
+        categoryService.deleteCategoryById(id);
+        return Result.success();
+    }
+
 }

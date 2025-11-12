@@ -55,6 +55,16 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategoryByType(int type) {
         return categoryMapper.getCategoryByType(type);
     }
+
+    /**
+     * 根据id删除分类
+     * @param id
+     */
+    @Override
+    public void deleteCategoryById(int id) {
+        categoryMapper.deleteCategoryById(id);
+
+    }
 }
 
 

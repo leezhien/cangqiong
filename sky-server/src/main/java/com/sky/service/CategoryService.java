@@ -19,4 +19,6 @@ public interface CategoryService {
     List<Category> getCategoryByType(int type);
 
     void addCategory(Category category);
+
+    void deleteCategoryById(int id);
 }
