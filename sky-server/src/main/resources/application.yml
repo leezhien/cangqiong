@@ -37,3 +37,11 @@ sky:
     admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+# 七牛云 OSS 配置
+qiniu:
+  accessKey: lJGyWNinZ0heTaOqIi5lVuYypox2CljKkHR6o2eK          # 从七牛云控制台获取
+  secretKey: VpMXvYG2YO2D0_c6Qk48ffSVYYnL26xYa4dSvSTx          # 从七牛云控制台获取
+  bucket:    leezhien         # 七牛云存储桶名称
+  hostName:  http://t5nz1fvac.hn-bkt.clouddn.com/  # 存储桶绑定的域名（或七牛云默认域名）
+
