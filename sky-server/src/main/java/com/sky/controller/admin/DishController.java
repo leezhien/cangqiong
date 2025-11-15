@@ -3,6 +3,7 @@ package com.sky.controller.admin;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
+import com.sky.mapper.DishMapper;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -50,6 +51,13 @@ public class DishController {
         log.info("批量删除 {}", ids);
         dishService.deleteDishBatch(ids);
         return Result.success();
+    }
 
+    @ApiOperation("菜品起售停售")
+    @PostMapping("/status/{status}")
+    public Result updateDishStatus(@PathVariable("status") Integer status, int id) {
+        log.info("菜品起售停售");
+        dishService.updateDishStatus(status, id);
+        return Result.success();
     }
 }

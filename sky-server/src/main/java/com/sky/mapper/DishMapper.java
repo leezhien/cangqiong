@@ -10,6 +10,7 @@ import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -53,4 +54,12 @@ public interface DishMapper {
      * @param ids
      */
     void deleteByIds(List<Long> ids);
+
+    /**
+     * 修改菜品状态
+     * @param status
+     * @param id
+     */
+    @Update("update dish set dish.status = #{status} where dish.id = #{id}")
+    void updateDishStatus(Integer status, int id);
 }

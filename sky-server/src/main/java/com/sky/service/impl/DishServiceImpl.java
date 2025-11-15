@@ -36,6 +36,11 @@ public class DishServiceImpl implements DishService {
     @Autowired
     private DishMapper dishMapper;
 
+    @Override
+    public void updateDishStatus(Integer status, int id) {
+        dishMapper.updateDishStatus(status, id);
+    }
+
     @Autowired
     private DishFlavorMapper dishFlavorMapper;
 
