@@ -96,8 +96,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         //返回给前端的类型
         PageResult pageResult = new PageResult();
         //放入数据，
-
-
         pageResult.setTotal(page.getTotal());
         pageResult.setRecords(employeeList);
         return pageResult;

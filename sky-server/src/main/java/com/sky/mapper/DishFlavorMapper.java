@@ -22,4 +22,7 @@ public interface DishFlavorMapper {
      */
 
     void insertBatch(@Param("flavors") List<DishFlavor> flavors);
+
+
+    void deleteByDishId(List<Long> ids);
 }

@@ -12,6 +12,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @program: sky-take-out
  * @description:
@@ -42,4 +44,13 @@ public interface DishMapper {
      * @return
      */
     Page<DishVO> dishPage(DishPageQueryDTO dishPageQueryDTO);
+
+    @Select("select * from dish where dish.id = #{id}")
+    Dish getByd(Long id);
+
+    /**
+     * 根据主键来删除菜品数据
+     * @param ids
+     */
+    void deleteByIds(List<Long> ids);
 }
